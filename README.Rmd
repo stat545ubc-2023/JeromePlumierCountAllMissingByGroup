@@ -1,5 +1,17 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # JeromePlumierCountAllMissingByGroup
 
@@ -18,46 +30,27 @@ contain the number of missing values for all columns in `data` except
 Make sure that devtools is installed by running
 `install.packages("devtools")`, then type:
 
-``` r
+```{R}
 devtools::install_github("stat545ubc-2023/JeromePlumierCountAllMissingByGroup", 
                          ref= "0.1.0")
-#> Downloading GitHub repo stat545ubc-2023/JeromePlumierCountAllMissingByGroup@0.1.0
-#> Error in utils::download.file(url, path, method = method, quiet = quiet,  : 
-#>   impossible d'ouvrir l'URL 'https://api.github.com/repos/stat545ubc-2023/JeromePlumierCountAllMissingByGroup/tarball/0.1.0'
 ```
 
 ## Example
 
-Let’s test our function using the `airquality` dataset, and group by
+Let's test our function using the `airquality` dataset, and group by
 `Month`:
 
-``` r
+```{R}
 library(JeromePlumierCountAllMissingByGroup)
 count_all_missing_by_group(airquality, Month)
-#> # A tibble: 5 × 6
-#>   Month Ozone Solar.R  Wind  Temp   Day
-#>   <int> <int>   <int> <int> <int> <int>
-#> 1     5     5       4     0     0     0
-#> 2     6    21       0     0     0     0
-#> 3     7     5       0     0     0     0
-#> 4     8     5       3     0     0     0
-#> 5     9     1       0     0     0     0
 ```
 
 This example has the same output as the last example, but shows off an
 alternative way of invoking the `count_all_missing_by_group()`: piping
 the dataset into the function:
 
-``` r
+```{R}
 airquality |> count_all_missing_by_group(Month)
-#> # A tibble: 5 × 6
-#>   Month Ozone Solar.R  Wind  Temp   Day
-#>   <int> <int>   <int> <int> <int> <int>
-#> 1     5     5       4     0     0     0
-#> 2     6    21       0     0     0     0
-#> 3     7     5       0     0     0     0
-#> 4     8     5       3     0     0     0
-#> 5     9     1       0     0     0     0
 ```
 
 The optional `.groups` argument allows us to keep the output grouped by
@@ -65,15 +58,6 @@ the grouping column. See example below; notice how the output is a
 grouped tibble, rather than the ungrouped tibble output of the earlier
 examples:
 
-``` r
+```{R}
 count_all_missing_by_group(airquality, Month, .groups = "keep")
-#> # A tibble: 5 × 6
-#> # Groups:   Month [5]
-#>   Month Ozone Solar.R  Wind  Temp   Day
-#>   <int> <int>   <int> <int> <int> <int>
-#> 1     5     5       4     0     0     0
-#> 2     6    21       0     0     0     0
-#> 3     7     5       0     0     0     0
-#> 4     8     5       3     0     0     0
-#> 5     9     1       0     0     0     0
 ```
