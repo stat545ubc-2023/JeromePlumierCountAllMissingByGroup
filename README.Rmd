@@ -1,5 +1,8 @@
 ---
 output: github_document
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -16,6 +19,7 @@ knitr::opts_chunk$set(
 # JeromePlumierCountAllMissingByGroup
 
 <!-- badges: start -->
+
 <!-- badges: end -->
 
 This R package contains the function `count_all_missing_by_group` that,
@@ -30,7 +34,7 @@ contain the number of missing values for all columns in `data` except
 Make sure that devtools is installed by running
 `install.packages("devtools")`, then type:
 
-```{R}
+```{R, eval = FALSE}
 devtools::install_github("stat545ubc-2023/JeromePlumierCountAllMissingByGroup", 
                          ref= "0.1.0")
 ```

@@ -21,9 +21,6 @@ Make sure that devtools is installed by running
 ``` r
 devtools::install_github("stat545ubc-2023/JeromePlumierCountAllMissingByGroup", 
                          ref= "0.1.0")
-#> Downloading GitHub repo stat545ubc-2023/JeromePlumierCountAllMissingByGroup@0.1.0
-#> Error in utils::download.file(url, path, method = method, quiet = quiet,  : 
-#>   impossible d'ouvrir l'URL 'https://api.github.com/repos/stat545ubc-2023/JeromePlumierCountAllMissingByGroup/tarball/0.1.0'
 ```
 
 ## Example
